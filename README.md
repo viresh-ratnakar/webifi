@@ -141,7 +141,7 @@ Describe the crossword, providing info such as grid size, number of clues, title
 - intro|introduction|describe|puzzle|crossword
 
 #### status
-Get current status and lists some unsolved clues in fraction-most-filled order.
+Get current status and list some unsolved clues in fraction-most-filled order.
 
 - status
 - how am I doing
