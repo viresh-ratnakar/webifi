@@ -31,8 +31,8 @@ Here are all the commands that you can use, grouped by "avatars" that handle the
 All input is handled case-insensitively.
 
 ### Avatar: Webifi
-This is the basic avatar. It provides commands that control settings, display, audiom etc.
-The available commands are as follows:
+This is the basic avatar. It provides commands that control settings, display,
+audio, etc. The available commands are as follows:
 
 #### hello
 Get an introduction to Webifi and a listing of available avatars.
