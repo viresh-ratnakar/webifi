@@ -160,10 +160,9 @@ Navigate to a clue by naming or characterizing it.
 - first|last across|down|clue
 
 The "best" command and its variants will take you to the next best unsolved
-clue that in terms of having the most solved cells. The "back" command
-will take you the clue that you were looking at before the current clue.
-The "prev" and "next" commands go through the clues in their normal
-order.
+clue (in terms of having the most solved cells). The "back" command will take
+you the clue that you were looking at before the current clue. The "prev" and
+"next" commands go through the clues in their normal order.
 
 #### clue
 Read the current clue and its current entry.
