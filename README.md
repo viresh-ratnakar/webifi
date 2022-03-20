@@ -240,7 +240,7 @@ add the following files in your serving directory:
 - [`crossword-webifi.js`](https://raw.githubusercontent.com/viresh-ratnakar/webifi/master/crossword-webifi.js),
 - [`webifi-icon.png`](https://raw.githubusercontent.com/viresh-ratnakar/webifi/master/webifi-icon.png),
 
-You also need the two files from the
+You also need these two files from the
 [Exet](https://github.com/viresh-ratnakar/exet) project:
 
 - [`exet-lexicon.js`](https://raw.githubusercontent.com/viresh-ratnakar/exet/master/exet-lexicon.js),
