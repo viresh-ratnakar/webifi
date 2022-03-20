@@ -10,7 +10,8 @@ Webifi is a text and audio interface that enables command-line interactions with
 web pages.
 
 Webifi might be useful for people with limited sight. It might also be useful
-when one wants to interact with a web site while walking, running, etc.
+when one wants to interact with a web site while walking, running, etc. It
+might also be an interesting and fun addendum even outside of these use-cases.
 
 At this point, Webifi is *not* a general-purpose interface: it only works
 for crosswords. However, I plan to expand its capabilities to other kinds
