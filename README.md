@@ -4,6 +4,8 @@
 
 ### Version: Webifi v0.00 March 20, 2022
 
+#### Author: Viresh Ratnakar
+
 Webifi is a text and audio interface that enables command-line interactions with
 web pages.
 
@@ -271,3 +273,122 @@ who is an excellent cryptic crossword solver, for spending several hours
 with me discussing ideas about this project, working through crosswords to
 figure out important elements for the interface, trying out my demos and
 offering excellent insights and suggestions.
+
+## Copyright notices
+
+### UKACD18
+
+```
+UKACD18
+Copyright (c) 2009 J Ross Beresford
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions
+are met:
+
+1. Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.
+
+3. The name of the author may not be used to endorse or promote products
+   derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE AUTHOR "AS IS" AND ANY EXPRESS OR
+IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+```
+
+### CMUdict
+
+```
+CMUdict
+-------
+
+CMUdict (the Carnegie Mellon Pronouncing Dictionary) is a free
+pronouncing dictionary of English, suitable for uses in speech
+technology and is maintained by the Speech Group in the School of
+Computer Science at Carnegie Mellon University.
+
+The Carnegie Mellon Speech Group does not guarantee the accuracy of
+this dictionary, nor its suitability for any specific purpose. In
+fact, we expect a number of errors, omissions and inconsistencies to
+remain in the dictionary. We intend to continually update the
+dictionary by correction existing entries and by adding new ones. From
+time to time a new major version will be released.
+
+We welcome input from users: Please send email to Alex Rudnicky
+(air+cmudict@cs.cmu.edu).
+
+The Carnegie Mellon Pronouncing Dictionary, in its current and
+previous versions is Copyright (C) 1993-2014 by Carnegie Mellon
+University.  Use of this dictionary for any research or commercial
+purpose is completely unrestricted. If you make use of or
+redistribute this material we request that you acknowledge its
+origin in your descriptions, as per the license information included
+in the dictionary file (a Simplified BSD lincense).
+
+If you add words to or correct entries in your version of this
+dictionary, we would appreciate it if you could send these additions
+and corrections to us (air+cmudict@cs.cmu.edu) for consideration in a
+subsequent version. All submissions will be reviewed and approved by
+the current maintainer, Alex Rudnicky at Carnegie Mellon University.
+
+----------------------------------------------------------------------
+The current version of cmudict is now cmudict-0.7b 
+[First released November 19, 2014]
+
+Note that the first '.' in the file name has changed to a '-' as it
+was observed that file systems occasionally get confused about the
+scope of the extension.
+
+Please note that the dictionary is modified incrementally, to correct
+errors are incorporate new words. If you require a unique version, be
+sure to specify a revision when you check it out.
+
+cmudict-0.7b includes various systematic fixes and additional words.
+As always please let us know if you see a problem or want to suggest a
+word.
+
+----------------------------------------------------------------------
+```
+
+### Webifi, Exolve, Exet
+
+```
+MIT License
+
+Copyright (c) 2022 Viresh Ratnakar
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+The latest code and documentation for Exet can be found at:
+https://github.com/viresh-ratnakar/exet
+```
+
