@@ -80,8 +80,8 @@ The number, if specified, can be in the range 0.1 to 2.0.
 #### help
 Get a listing of all commands or get help on a specific command or topic.
 
-- help|list|commands|?
-- help|commands on|with|for {topic}
+- help|list|commands|? [{topic}]
+- help|commands on|with|for [{topic}]
 - detailed help
 
 ### Avatar: Words
