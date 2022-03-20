@@ -178,13 +178,14 @@ function Webifi() {
   this.rate = 1.0;
   if (!this.synth) {
     console.log('Speech synthesis is not supported');
+  } else {
+    this.synth.onvoiceschanged = this.handleVoicesChanged.bind(this);
   }
-  this.synth.onvoiceschanged = this.handleVoicesChanged.bind(this);
   this.started = false;
 }
 
-Webifi.prototype.handleVoicesChanged = function(evt) {
-  this.setVoice();
+Webifi.prototype.handleVoicesChanged = function(evt, desired='') {
+  this.setVoice(desired);
 }
 
 Webifi.prototype.setVoice = function(desired='') {
@@ -194,6 +195,7 @@ Webifi.prototype.setVoice = function(desired='') {
       console.log('Speech synthesis is not available');
       return;
     }
+    this.synth.onvoiceschanged = this.handleVoicesChanged.bind(this, desired);
   }
   const voices = this.synth.getVoices();
   this.voice = null;
