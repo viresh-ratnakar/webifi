@@ -234,10 +234,9 @@ Get words or phrases matching the current light.
 ## Serving guide
 
 To enable Webifi on crosswords published on a web site (that uses
-[Exolve](https://github.com/viresh-ratnakar/exolve)), you just need to
+[Exolve](https://github.com/viresh-ratnakar/exolve)), you need to
 add the following files in your serving directory:
 
-- [`webifi-version.txt`](https://raw.githubusercontent.com/viresh-ratnakar/webifi/master/webifi-version.txt)
 - [`webifi.js`](https://raw.githubusercontent.com/viresh-ratnakar/webifi/master/webifi.js)
 - [`words-webifi.js`](https://raw.githubusercontent.com/viresh-ratnakar/webifi/master/words-webifi.js)
 - [`crossword-webifi.js`](https://raw.githubusercontent.com/viresh-ratnakar/webifi/master/crossword-webifi.js)
@@ -250,7 +249,7 @@ You also need these two files from the
 - [`lufz-en-lexicon.js`](https://raw.githubusercontent.com/viresh-ratnakar/exet/master/lufz-en-lexicon.js)
 
 Your crossword page that uses Exolve should use Exolve v1.34 or later, in
-order for it to automatically offer Webifi. This means that it's either a
+order for it to offer Webifi. This means that it's either a
 derivative of
 [`exolve.html`](https://raw.githubusercontent.com/viresh-ratnakar/exolve/master/exolve.html),
 or it loads the files
@@ -258,11 +257,16 @@ or it loads the files
 and
 [`exolve-m.css`](https://raw.githubusercontent.com/viresh-ratnakar/exolve/master/exolve-m.css).
 
-Exolve will automatically create a Webifi link under the crossword, if it
-detects that the necessary Webifi script files are available from the
-serving directory. It first checks for the presence of the small
-`webifi-version.txt` file, and if that can be loaded, only then does it
-attempt to load the script files.
+Assuming the necessary Webifi scripts and icon files listed above are made
+available by the server, Exolve can be made to offer the Webifi interface in
+one of three ways.
+- The webifi script files are included through script tags in the crossword
+  file.
+- `exolve-option: webifi` is used in the crossword specifications.
+- `webifi` is passed as a URL parameter.
+Note that in the `exolve-option: webifi` case and in the URL
+parameter case, it is not necessary to add script tags to load the webifi
+scripts, as they will automatically loaded if not already present.
 
 ## Design and architecture
 
