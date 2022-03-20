@@ -28,7 +28,9 @@ Such URLs should be useful for sight-challenged users.
 ## User manual
 
 Here are all the commands that you can use, grouped by "avatars" that handle them.
-All input is handled case-insensitively.
+All input is handled case-insensitively. When audio is on, you can cut short
+any long output from Webifi by entering *any* text ("ok" and "shh" are good,
+natural choices).
 
 ### Avatar: Webifi
 This is the basic avatar. It provides commands that control settings, display,
