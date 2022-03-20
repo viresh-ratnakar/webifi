@@ -237,17 +237,17 @@ To enable Webifi on crosswords published on a web site (that uses
 [Exolve](https://github.com/viresh-ratnakar/exolve)), you just need to
 add the following files in your serving directory:
 
-- [`webifi-version.txt`](https://raw.githubusercontent.com/viresh-ratnakar/webifi/master/webifi-version.txt),
-- [`webifi.js`](https://raw.githubusercontent.com/viresh-ratnakar/webifi/master/webifi.js),
-- [`words-webifi.js`](https://raw.githubusercontent.com/viresh-ratnakar/webifi/master/words-webifi.js),
-- [`crossword-webifi.js`](https://raw.githubusercontent.com/viresh-ratnakar/webifi/master/crossword-webifi.js),
-- [`webifi-icon.png`](https://raw.githubusercontent.com/viresh-ratnakar/webifi/master/webifi-icon.png),
+- [`webifi-version.txt`](https://raw.githubusercontent.com/viresh-ratnakar/webifi/master/webifi-version.txt)
+- [`webifi.js`](https://raw.githubusercontent.com/viresh-ratnakar/webifi/master/webifi.js)
+- [`words-webifi.js`](https://raw.githubusercontent.com/viresh-ratnakar/webifi/master/words-webifi.js)
+- [`crossword-webifi.js`](https://raw.githubusercontent.com/viresh-ratnakar/webifi/master/crossword-webifi.js)
+- [`webifi-icon.png`](https://raw.githubusercontent.com/viresh-ratnakar/webifi/master/webifi-icon.png)
 
 You also need these two files from the
 [Exet](https://github.com/viresh-ratnakar/exet) project:
 
-- [`exet-lexicon.js`](https://raw.githubusercontent.com/viresh-ratnakar/exet/master/exet-lexicon.js),
-- [`lufz-en-lexicon.js`](https://raw.githubusercontent.com/viresh-ratnakar/exet/master/lufz-en-lexicon.js),
+- [`exet-lexicon.js`](https://raw.githubusercontent.com/viresh-ratnakar/exet/master/exet-lexicon.js)
+- [`lufz-en-lexicon.js`](https://raw.githubusercontent.com/viresh-ratnakar/exet/master/lufz-en-lexicon.js)
 
 Your crossword page that uses Exolve should use Exolve v1.34 or later, in
 order for it to automatically offer Webifi. This means that it's either a
