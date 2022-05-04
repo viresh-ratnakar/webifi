@@ -2,7 +2,7 @@
 
 ## An "interactive-fictionesque" interface to the web.
 
-### Version: Webifi v0.00 March 20, 2022
+### Version: Webifi v0.01 May 3, 2022
 
 #### Author: Viresh Ratnakar
 
