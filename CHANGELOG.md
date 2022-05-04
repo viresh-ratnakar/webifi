@@ -1,5 +1,13 @@
 # Changelog
 
+### Version: Webifi v0.01 May 3, 2022
+
+- Grab the input without waiting for "Enter", after a two-second lull.
+  This is especially helpful for voice-typing.
+- Add "next clue" and "previous clue" commands as variants of "next"
+  and "previous" as they are natural instinctive completions.
+- Update the documentation a bit.
+
 ### Unnumbered tweak, March 20, 2022
 
 - Minor bug-fixes. Remove webifi-version.txt as that mechanism

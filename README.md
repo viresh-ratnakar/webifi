@@ -27,6 +27,12 @@ Such URLs should be useful for sight-challenged users.
 
 ## User manual
 
+To enter a command, type it at the command line (you may want to use voice-input
+if available). You do not have to hit enter after typing the command. Webifi
+will grab the command after a two-second lull (this is to help with
+voice-typing, where activating "Enter" verbally is difficult on many mobile
+platforms).
+
 Here are all the commands that you can use, grouped by "avatars" that handle them.
 All input is handled case-insensitively. When audio is on, you can cut short
 any long output from Webifi by entering *any* text ("ok" and "shh" are good,
@@ -51,6 +57,8 @@ Report or set audio mode.
 - audio off|on|us|gb|au|in|za
   - The US, GB, AU, IN, and ZA options allow you to switch to that
     country's accent, if available.
+
+When you turn audio on, please prefer to use headphones for privacy as well as to avoid interference if using voice-typing.
 
 #### display
 Report or set whether the "peer element" is getting displayed.
@@ -192,11 +200,14 @@ Enter the solution for the current clue, optionally starting at a cell.
 - enter|fill {letters}
 - enter|fill at|in|from cell [number] {letters}
 
-The prefix should be followed by the letters that you want to enter. Note that
+The command should be followed by the letters that you want to enter. Note that
 if the entered letters have a conflict with some existing letter that was
 entered previously, or if you enter more letters than needed, then Webifi
 will ask you to confirm. You can enter "yes" or "ok" at that prompt, or
 you can enter anything else (to cancel).
+
+The command "enter" may pose a problem when voice-typing (it might get
+ignored on some platforms). Use the command "fill" in that case.
 
 #### clear
 Clear entries in the current light or a particular cell.

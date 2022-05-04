@@ -26,7 +26,7 @@ https://github.com/viresh-ratnakar/webifi
 */
 
 function Webifi() {
-  this.VERSION = 'Webifi v0.00, February 19, 2022';
+  this.VERSION = 'Webifi v0.01, May 3, 2022';
   this.MAX_LEN = 1000;
   this.MAX_LIST_LEN = 20;
   this.MAX_LOG_ENTRIES = 1000;
@@ -182,6 +182,7 @@ function Webifi() {
   } else {
     this.synth.onvoiceschanged = this.setVoice.bind(this);
   }
+  this.inputWaiter = null;    /* Timer waiting to act on current input */
   this.started = false;
 }
 
@@ -384,9 +385,20 @@ Webifi.prototype.commandMatch = function(words, matchers) {
   return longestMatchIndex;
 }
 
-Webifi.prototype.handleInput = function() {
+Webifi.prototype.handleInputInput = function() {
+  if (this.inputWaiter) {
+    clearTimeout(this.inputWaiter);
+  }
+  this.inputWaiter = setTimeout(this.handleInputChange.bind(this), 2000);
+}
+
+Webifi.prototype.handleInputChange = function() {
   let input = this.input.value.trim().substr(0, this.MAX_LEN);
   this.input.value = '';
+  if (this.inputWaiter) {
+    clearTimeout(this.inputWaiter);
+  }
+  this.inputWaiter = null;
   if (input.endsWith('?') && !input.startsWith('?')) {
     input = input.replace(/[?]+$/, '');
   }
@@ -468,6 +480,7 @@ Webifi.prototype.handleAudio = function(words, numMatched) {
     } else {
       this.output(this.name, `Audio is on; language is ${this.voice.lang}, with the name, ${this.voice.name}`);
     }
+    this.output(this.name, 'Please prefer to use headphones for privacy and also to avoid interference if using voice-typing.');
   }
 }
 
@@ -503,7 +516,7 @@ Webifi.prototype.output = function(avatarName, text, list=[], numbered=true) {
   }
   const avatar = this.avatars[avatarName];
 
-  let spokenText = text.replace(/<pause>/g, ' ... ');
+  let spokenText = text.replace(/<pause>/g, ' ; ');
   let writtenText = text.replace(/<pause>/g, ' ').replace(/\s+/g, ' ');
   if (list.length > this.MAX_LIST_LEN) {
     list.length = this.MAX_LIST_LEN;
@@ -518,7 +531,7 @@ Webifi.prototype.output = function(avatarName, text, list=[], numbered=true) {
     writtenText = writtenText.substr(0, this.MAX_LEN);
   }
   for (let index = 0; index < list.length; index++) {
-    spokenList[index] = spokenList[index].replace(/<pause>/g, ' ... ');
+    spokenList[index] = spokenList[index].replace(/<pause>/g, ' ; ');
     if (spokenList[index].length > this.MAX_LEN) {
       spokenList[index] = spokenList[index].substr(0, this.MAX_LEN);
     }
@@ -643,7 +656,8 @@ Webifi.prototype.start = function(domPeer=null) {
 
   this.log = document.getElementById('webifi-log');
   this.input = document.getElementById('webifi-input');
-  this.input.addEventListener('change', this.handleInput.bind(this));
+  this.input.addEventListener('change', this.handleInputChange.bind(this));
+  this.input.addEventListener('input', this.handleInputInput.bind(this));
 
   this.setDisplay();
 
