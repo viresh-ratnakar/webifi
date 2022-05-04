@@ -2,6 +2,10 @@
 
 ### Unnumbered bug-fix, May 3, 2022
 
+- Bug-fix: HTML tags have to be removed from clues before showing them.
+
+### Unnumbered bug-fix, May 3, 2022
+
 - Bug-fix: in-clue annos have to be removed from clues before showing them.
 
 ### Unnumbered tweak, May 3, 2022
