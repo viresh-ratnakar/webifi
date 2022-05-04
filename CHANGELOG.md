@@ -1,5 +1,10 @@
 # Changelog
 
+### Unnumbered tweak, May 3, 2022
+
+- More doc tweaking.
+- Add "navigate" as a synonym command for "best"
+
 ### Version: Webifi v0.01 May 3, 2022
 
 - Grab the input without waiting for "Enter", after a two-second lull.

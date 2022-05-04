@@ -121,10 +121,12 @@ Navigate to a clue by naming or characterizing it.
 - [number]
 - [number]A|[number]D
 - [number] across|down|A|D
-- best|easiest|solvable
+- navigate|best|easiest|solvable
 - next|most best|easiest|solvable
 - next
+- next clue
 - prev|previous|back
+- previous clue
 - first|last
 - first|last across|down|clue
 
@@ -193,7 +195,8 @@ Reveal entries in the current light or a particular cell or everywhere.
 This option is only available in crossword where the solution has been provided.
 
 #### matches
-Get words or phrases matching the current light.
+Get words or phrases matching the letters that have been entered so far in the
+current light.
 
 - matches
 - matching words
