@@ -27,6 +27,10 @@ Such URLs should be useful for sight-challenged users.
 
 ## User manual
 
+The webifi interface is a simple command-line interface. The command prompt is at
+the bottom, and above it is scrollable log of recent commands as well as their
+responses.
+
 To enter a command, type it at the command line (you may want to use voice-input
 if available). You do not have to hit enter after typing the command. Webifi
 will grab the command after a two-second lull (this is to help with
