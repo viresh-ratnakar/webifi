@@ -99,52 +99,6 @@ Get a listing of all commands or get help on a specific command or topic.
 - help|commands on|with|for [{topic}]
 - detailed help
 
-### Avatar: Words
-Word patterns, anagrams, word sounds, definitions, synonyms.
-The available commands are as follows:
-
-#### define
-Use dictionarydev.api to look up a word or phrase.
-
-- define|definition|definitions {phrase}
-- look up definition|definitions|meaning of {phrase}
-
-#### synonyms
-Use dictionarydev.api to look up synonyms of a word or phrase.
-
-- synonyms|syns {phrase}
-- synonyms|syns of {phrase}
-
-The synonyms obtained from this free API are not that great, unfortunately: very
-few words have available synonyms. I am still looking for a good, free synonym
-service not encumbered with API tokens etc.
-
-#### pattern
-Get words or phrases matching the given letter pattern.
-
-- pattern|word-pattern|letter-pattern {pattern>}
-
-The pattern can be something like *c??ssw?r?* or *s?u? u?*, etc.
-
-#### anagrams
-Get anagrams of a word or phrase or any set of letters.
-
-- anagrams|anagram {phrase}
-- anagrams|anagram of {phrase}
-
-#### homophones
-Get homophones of a word or phrase.
-
-- homophone|homophones {phrase}
-- homophone|homophones of {phrase}
-- words sounding like
-
-#### spoonerisms
-Get Spoonerisms of a word or phrase.
-
-- spoonerism|spoonerisms {phrase}
-- spoonerism|spoonerisms of {phrase}
-
 ### Avatar: Crossword
 An interactive crossword player.
 The available commands are as follows:
@@ -245,6 +199,52 @@ Get words or phrases matching the current light.
 - matching words
 - matching phrases
 - what fits
+
+### Avatar: Words
+Word patterns, anagrams, word sounds, definitions, synonyms.
+The available commands are as follows:
+
+#### define
+Use dictionarydev.api to look up a word or phrase.
+
+- define|definition|definitions {phrase}
+- look up definition|definitions|meaning of {phrase}
+
+#### synonyms
+Use dictionarydev.api to look up synonyms of a word or phrase.
+
+- synonyms|syns {phrase}
+- synonyms|syns of {phrase}
+
+The synonyms obtained from this free API are not that great, unfortunately: very
+few words have available synonyms. I am still looking for a good, free synonym
+service not encumbered with API tokens etc.
+
+#### pattern
+Get words or phrases matching the given letter pattern.
+
+- pattern|word-pattern|letter-pattern {pattern>}
+
+The pattern can be something like *c??ssw?r?* or *s?u? u?*, etc.
+
+#### anagrams
+Get anagrams of a word or phrase or any set of letters.
+
+- anagrams|anagram {phrase}
+- anagrams|anagram of {phrase}
+
+#### homophones
+Get homophones of a word or phrase.
+
+- homophone|homophones {phrase}
+- homophone|homophones of {phrase}
+- words sounding like
+
+#### spoonerisms
+Get Spoonerisms of a word or phrase.
+
+- spoonerism|spoonerisms {phrase}
+- spoonerism|spoonerisms of {phrase}
 
 ## Serving guide
 
