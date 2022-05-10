@@ -1,5 +1,9 @@
 # Changelog
 
+### Unnumbered bug-fix, May 9, 2022
+
+- Use the renamed command name (type, not enter).
+
 ### Version: Webifi v0.02, May 9, 2022
 
 - Add "type" as the main alias for enter/fill (in voice-typing, "enter"
