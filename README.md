@@ -2,9 +2,11 @@
 
 ## An "interactive-fictionesque" interface to the web.
 
-### Version: Webifi v0.01 May 3, 2022
+### Version: Webifi v0.02 May 9, 2022
 
 #### Author: Viresh Ratnakar
+
+## Introduction
 
 Webifi is a text and audio interface that enables command-line interactions with
 web pages.
@@ -25,17 +27,28 @@ If a web-page for a Webifi-enabled crossword is accessed with the URL paramater
 will stay open (with the crossword's graphic interface hidden by default).
 Such URLs should be useful for sight-challenged users.
 
-## User manual
-
 The webifi interface is a simple command-line interface. The command prompt is at
 the bottom, and above it is scrollable log of recent commands as well as their
 responses.
 
 To enter a command, type it at the command line (you may want to use voice-input
-if available). You do not have to hit enter after typing the command. Webifi
-will grab the command after a two-second lull (this is to help with
-voice-typing, where activating "Enter" verbally is difficult on many mobile
-platforms).
+if available). You do not have to press the "Enter" j=key after typing the
+command. Webifi will grab the command after a two-second lull (this is to help
+with voice-typing, where activating the "Enter" key verbally is difficult on
+many mobile platforms).
+
+## Note on voice-typing
+Voice-typing into a web app is quite quirky, as of May 2022 (sadly). I have
+mostly tried it on Chrome on Android. The ideal interface that I would like
+is one where the microphone stays on while a sight-challenged user interacts
+with the web app (or a sighted user interacts with it while on a walk or a
+run). Unfortunately, I have not yet found a way to get this functionality. The
+closest that I can get is by double-tapping on the microphone icon in the
+on-screen keyboard that shows up in Chrome on Android. This keeps the microphone
+on for long periods. However, at some point the microphone shut off, requiring
+a new double-tap on its icon.
+
+## Commands
 
 Here are all the commands that you can use, grouped by "avatars" that handle them.
 All input is handled case-insensitively. When audio is on, you can cut short
@@ -154,11 +167,11 @@ Describe clues for lights that cross the current lights.
 - crossing clues
 - crossing lights
 
-#### enter
+#### type
 Enter the solution for the current clue, optionally starting at a cell.
 
-- enter|fill {letters}
-- enter|fill at|in|from cell [number] {letters}
+- type|enter|fill {letters}
+- type|enter|fill at|in|from cell [number] {letters}
 
 The command should be followed by the letters that you want to enter. Note that
 if the entered letters have a conflict with some existing letter that was
@@ -167,7 +180,9 @@ will ask you to confirm. You can enter "yes" or "ok" at that prompt, or
 you can enter anything else (to cancel).
 
 The command "enter" may pose a problem when voice-typing (it might get
-ignored on some platforms). Use the command "fill" in that case.
+ignored on some platforms). The command "fill" may get misinterpreted as
+"Phil". Hence, "type" is perhaps the best verbal command for entering
+letters into the grid.
 
 #### clear
 Clear entries in the current light or a particular cell.

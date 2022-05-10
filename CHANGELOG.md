@@ -1,5 +1,11 @@
 # Changelog
 
+### Version: Webifi v0.02, May 9, 2022
+
+- Add "type" as the main alias for enter/fill (in voice-typing, "enter"
+  is often misinterpreted, and "fill" is often taken to be "Phil").
+- Use a scriptUrlBase to prefix script files for loading.
+
 ### Unnumbered bug-fix, May 3, 2022
 
 - Bug-fix: HTML tags have to be removed from clues before showing them.
