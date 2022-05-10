@@ -35,7 +35,10 @@ To enter a command, type it at the command line (you may want to use voice-input
 if available). You do not have to press the "Enter" key after typing the
 command. Webifi will grab the command after a two-second lull (this is to help
 with voice-typing, where activating the "Enter" key verbally is difficult on
-many mobile platforms).
+many mobile platforms). If you need to pause for longer than two seconds while
+typing, just type a space at the end and Webifi will then not grab the text
+(you can always erase the extra space if it's not needed, when you continue
+typing).
 
 ## Note on voice-typing
 Voice-typing into a web app is quite quirky, as of May 2022 (sadly). I have
@@ -45,8 +48,8 @@ with the web app (or a sighted user interacts with it while on a walk or a
 run). Unfortunately, I have not yet found a way to get this functionality. The
 closest that I can get is by double-tapping on the microphone icon in the
 on-screen keyboard that shows up in Chrome on Android. This keeps the microphone
-on for long periods. However, at some point the microphone shut off, requiring
-a new double-tap on its icon.
+on for long periods. However, at some point the microphone *will* shut off,
+requiring a fresh double-tap on its icon for reactivation.
 
 ## Commands
 

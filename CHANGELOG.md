@@ -1,5 +1,10 @@
 # Changelog
 
+### Unnumbered tweak, May 10, 2022
+
+- Allow pausing longer than 2 seconds while typing, if the last char
+  entered is space.
+
 ### Unnumbered bug-fix, May 9, 2022
 
 - Use the renamed command name (type, not enter).
