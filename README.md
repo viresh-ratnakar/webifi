@@ -1,6 +1,6 @@
 # Webifi
 
-## An "interactive-fictionesque" interface to the web.
+## An "interactive-fictionesque" chat interface to the web.
 
 ### Version: Webifi v0.02 May 9, 2022
 
