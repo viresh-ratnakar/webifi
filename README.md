@@ -8,7 +8,7 @@
 
 ## Introduction
 
-Webifi is a text and audio interface that enables command-line interactions with
+Webifi is a text and audio interface that enables chat interactions with
 web pages.
 
 Webifi might be useful for people with limited sight. It might also be useful
@@ -22,16 +22,17 @@ of web pages. Other word game and puzzle pages are likely to be my next targets.
 In a Webifi-enabled crossword, there is a link under the crossword that
 says "Webifi", which allows toggling the interface.
 
-If a web-page for a Webifi-enabled crossword is accessed with the URL paramater
+If a web-page for a Webifi-enabled crossword is accessed with the URL parameter
 "webifi" present in the URL, then the Webifi interface will open directly and
 will stay open (with the crossword's graphic interface hidden by default).
 Such URLs should be useful for sight-challenged users.
 
-The webifi interface is a simple command-line interface. The command prompt is at
+The webifi interface is a simple chat interface, similar to the command-line
+interfaces used in interactive text adventure games. The command prompt is at
 the bottom, and above it is scrollable log of recent commands as well as their
 responses.
 
-To enter a command, type it at the command line (you may want to use voice-input
+To enter a command, type it at the chat prompt (you may want to use voice-input
 if available). You do not have to press the "Enter" key after typing the
 command. Webifi will grab the command after a two-second lull (this is to help
 with voice-typing, where activating the "Enter" key verbally is difficult on
