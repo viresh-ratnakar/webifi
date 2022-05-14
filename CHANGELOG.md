@@ -1,5 +1,20 @@
 # Changelog
 
+### Version: Webifi v0.03, May 13, 2022
+
+- Add a few more "markup" to the output text apart from &lt;pause&gt;:
+  - &lt;phonetic&gt;X renders as X in written text and as "X (as in X-ray)"
+    in spoken text.
+  - &lt;spoken-X&gt; renders as nothing in written text and as X in spoken text.
+- Simplify annotateText(), reducing the kinds of things it would add
+  a note for. Also, make it add &lt;phonetic&gt; tags when spelling out words.
+- Add commands to read out parts of a clue. You can do that with
+  "words at 3" or "words after|before &lt;some-phrase&gt;" etc.
+- When reading the clue, just read the clue, do not read its number (read that
+  when reading the current entry in the clue).
+- Read blanks in entries as "dash" or "dashes" as somehow TTS is better with
+  that phrasing.
+
 ### Unnumbered tweak, May 10, 2022
 
 - Allow pausing longer than 2 seconds while typing, if the last char

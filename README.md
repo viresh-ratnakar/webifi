@@ -2,7 +2,7 @@
 
 ## An "interactive-fictionesque" chat interface to the web.
 
-### Version: Webifi v0.02 May 9, 2022
+### Version: Webifi v0.03 May 13, 2022
 
 #### Author: Viresh Ratnakar
 
@@ -152,17 +152,44 @@ clue (in terms of having the most solved cells). The "back" command will take
 you the clue that you were looking at before the current clue. The "prev" and
 "next" commands go through the clues in their normal order.
 
+When the result of a navigation clue takes you to a clue different from the
+clue that you were at, then after showing the new clue, its current entry
+is also shown.
+
 #### clue
-Read the current clue and its current entry.
+Read the current clue again.
 
 - clue
-- read
+
+### words
+You also access different parts of the clue, which is especially useful
+when you are listening to the interface using audio. Each one of these
+commands will show three words from the clue (or fewer, if the clue
+ends before three words).
+
+- words|word|part|parts [number]
+- words|word|part|parts at|from [number]
+- clue words|word|part|parts [number]
+- clue words|word|part|parts at|from [number]
+- clue start|starting|end|ending
+- words|word at start|starting|end|ending
+- words|word at the start|starting|end|ending
+- clue words|word at start|starting|end|ending
+- clue words|word at the start|starting|end|ending
+- words|word after
+- clue words|word after
+- words|word before
+- clue words|word before
+
+The [number], if used, should be the 1-based index of words in the clue.
+The "words after" and "words before" commands look within the clue for the
+phrase specified right after the command prefix.
 
 #### entry
-Read just the current entry in the current clue.
+Read the current entry (letters entered as well as blanks) and identify the current clue again.
 
-- entry|cells|letters|word|phrase
-- read|current entry|cells|letters|word|phrase
+- entry|current|read|cells|letters
+- read|current entry|cells|letters
 
 #### crossers
 Describe clues for lights that cross the current lights.
@@ -235,8 +262,8 @@ Use dictionarydev.api to look up a word or phrase.
 #### synonyms
 Use dictionarydev.api to look up synonyms of a word or phrase.
 
-- synonyms|syns {phrase}
-- synonyms|syns of {phrase}
+- synonym|synonyms|syns {phrase}
+- synonym|synonyms|syns of {phrase}
 
 The synonyms obtained from this free API are not that great, unfortunately: very
 few words have available synonyms. I am still looking for a good, free synonym
