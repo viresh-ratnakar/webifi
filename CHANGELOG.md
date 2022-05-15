@@ -2,6 +2,10 @@
 
 ### Unnumbered tweak, May 15, 2022
 
+- Handle HTML entities in clues.
+
+### Unnumbered tweak, May 15, 2022
+
 - Fix hyphen treatment in enums
 
 ### Unnumbered tweak, May 14, 2022
