@@ -1,5 +1,9 @@
 # Changelog
 
+### Unnumbered tweak, May 14, 2022
+
+- Add colon and seminolon to phonetics.
+
 ### Version: Webifi v0.04, May 14, 2022
 
 - Revision and simplification of audio markup:
