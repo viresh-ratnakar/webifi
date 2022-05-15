@@ -235,7 +235,7 @@ Read the current clue again.
 
 - clue
 
-### words
+#### words
 You also access different parts of the clue, which is especially useful
 when you are listening to the interface using audio. Each one of these
 commands will show three words from the clue (or fewer, if the clue
