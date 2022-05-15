@@ -83,7 +83,7 @@ course, it's up to you as a solver to decide how much assistance you want to
 use—my own philosophy as a solver is to maximize my *fun* in solving, which
 sometimes means using some assistance to get past a clue that I might be stuck
 on). Webifi can help you find words matching a partial solution; it can offer
-possibilities for some cryptic wordplays such as anagrams and homophnes.
+possibilities for some cryptic wordplays such as anagrams and homophones.
 When online, it can also look up definitions and synonyms.
 
 ## The basic interface
