@@ -52,7 +52,7 @@ function CrosswordWebifi(webifi, puz) {
     },
     'status': {
       description: 'Get current status and list some unsolved clues in fraction-most-filled order.',
-      prefixes: ['status', 'how am I doing', 'unsolved clues'],
+      prefixes: ['status|look|where', 'where am i', 'how am i doing', 'unsolved clues'],
     },
     'navigate': {
       description: 'Navigate to a clue by naming or characterizing it.',
@@ -78,13 +78,13 @@ function CrosswordWebifi(webifi, puz) {
         'clue words|word|part|parts [number]',
         'clue words|word|part|parts at|from [number]',
         'clue start|starting|end|ending',
-        'word|words at start|starting|end|ending',
-        'word|words at the start|starting|end|ending',
+        'word|words|clue at start|starting|end|ending',
+        'word|words|clue at the start|starting|end|ending',
         'clue word|words at start|starting|end|ending',
         'clue word|words at the start|starting|end|ending',
-        'words|word after',
+        'words|word|clue after',
         'clue words|word after',
-        'words|word before',
+        'words|word|clue before',
         'clue words|word before',
       ],
     },
@@ -149,10 +149,11 @@ CrosswordWebifi.prototype.handleDescribe = function() {
   }
   this.webifi.output(this.name,
       'Here are some commands you can use. Say "help" to get the full list of commands.', [
-        'You can say "clue" to get the current clue to be read out.',
-        '"status" lists some unsolved clues in fraction-most-filled order.',
+        'You can say "clue" to get the current clue to be read out, and "entry" to get its current entry to be read out.',
+        'You can enter solutions by saying "type" followed by the word or phrase to enter.',
+        'The "status" command tells you where you are, and lists some unsolved clues in fraction-most-filled order.',
         'Jump to any clue by entering its number followed optionally by "A" or "D" or "across" or "down". You can also say "next" or "next best" or "previous" or "back".',
-        'You can enter solutions by saying "fill" or "enter" followed by the entry.',], false);
+      ], false);
 
 }
 
@@ -184,16 +185,24 @@ CrosswordWebifi.prototype.handleStatus = function() {
         `You have completely filled the crossword's ${this.fillableClues} clues and ${this.puz.numCellsToFill} cells.`);
     return;
   }
+  this.ensureActiveClue();
+  const ci = this.puz.clueOrParentIndex(this.puz.currClueIndex);
+  const currClue = ci ? ('You are currently at ' + this.clueName(ci) + '. ') : '';
+
   list = [];
   let num = 0;
   for (let iAndF of indicesAndFracs) {
     const ci = iAndF[0];
-    list.push(this.clueName(ci) + ' has ' + (iAndF[2] - iAndF[1]) + ' unfilled cells, out of ' + iAndF[2] + '. ' + this.readEntry(ci) + '.');
+    let clueDesc = this.clueName(ci) + ' has ' + (iAndF[2] - iAndF[1]) + ' unfilled cells, out of ' + iAndF[2] + '.';
+    if (iAndF[1] > 0) {
+      clueDesc += ' It reads: <pause> ' + this.readEntry(ci) + '.';
+    }
+    list.push(clueDesc);
     if (++num >= 5) break;
   }
   const len = indicesAndFracs.length;
   this.webifi.output(this.name,
-    `There are ${this.puz.numCellsToFill - this.puz.numCellsFilled} unfilled cells out of ${this.puz.numCellsToFill} cells. ` +
+    `${currClue}There are ${this.puz.numCellsToFill - this.puz.numCellsFilled} unfilled cells out of ${this.puz.numCellsToFill} cells. ` +
     (len > 1 ?
     `There are ${len} unsolved clues out of ${this.fillableClues}. ${num < len ? "Here are the first few" :  "Here they are"} in fraction-most-filled order:` :
     'Here is the last unsolved clue.'),
@@ -245,53 +254,7 @@ CrosswordWebifi.prototype.getCellsEntry = function(cells, pattern) {
 
 CrosswordWebifi.prototype.readCells = function(cells, pattern) {
   const entry = this.getCellsEntry(cells, pattern);
-  const spokenChunks = [];
-  let blanks = 0;
-  let chunk = '';
-  let haveBlanks = false;
-  for (let letter of entry) {
-    if (letter != '?') {
-      if (blanks > 0) {
-        spokenChunks.push((blanks == 1) ? 'dash' : ('webifi-escape ' + blanks + ' webifi-escape dashes<pause>'));
-      }
-      if (letter == ' ' || letter == '-') {
-        if (chunk) {
-          spokenChunks.push(chunk);
-          chunk = '';
-        }
-        if (letter == '-') {
-          spokenChunks.push(letter);
-        }
-      } else {
-        chunk += letter;
-      }
-      blanks = 0;
-    } else {
-      if (chunk) {
-        spokenChunks.push(chunk);
-        chunk = '';
-      }
-      blanks++;
-      haveBlanks = true;
-    }
-  }
-  if (chunk) {
-    spokenChunks.push(chunk);
-    chunk = '';
-  } else if (blanks > 0) {
-    spokenChunks.push((blanks == 1) ? 'dash' : ('webifi-escape ' + blanks + ' webifi-escape dashes<pause>'));
-  }
-  for (let i = 0; i < spokenChunks.length; i++) {
-    const chunk = spokenChunks[i].toUpperCase();
-    if (this.webifi.phonetic[chunk]) {
-      spokenChunks[i] = '<phonetic>' + chunk;
-    }
-  }
-  let spokenEntry = spokenChunks.join('<pause>').trim();
-  if (haveBlanks) {
-    spokenEntry = this.webifi.annotateText(spokenEntry);
-  }
-  return spokenEntry;
+  return this.markUpEntry(entry);
 }
 
 CrosswordWebifi.prototype.readEntry = function(ci) {
@@ -335,6 +298,20 @@ CrosswordWebifi.prototype.cleanClueText = function(s) {
   return out;
 }
 
+CrosswordWebifi.prototype.markUpEnum = function(enumStr) {
+  return enumStr.replace(/,/g, ',<spoken:comma>').
+      replace(/-/g, '-<spoken-hyphen>').
+      replace(/'/, "'<spoken:apostrophe>");
+}
+
+CrosswordWebifi.prototype.markUpEntry = function(entry) {
+  if (entry.indexOf('?') >= 0) {
+    return '<verbose>' + entry.replace(/\?/g, '_') + '</verbose>';
+  } else {
+    return entry;
+  }
+}
+
 CrosswordWebifi.prototype.handleClue = function() {
   this.ensureActiveClue();
   if (!this.puz.currClueIndex) return;
@@ -357,12 +334,10 @@ CrosswordWebifi.prototype.handleClue = function() {
     if (loc >= 0) {
       clueText = clueText.substr(0, loc);
     }
-    enumText = enumText.replace(/,/g, ',<spoken:comma>').
-      replace(/-/g, '-<spoken-hyphen>').
-      replace(/'/, "'<spoken:apostrophe>").trim();
-    clueText = clueText + ' webifi-escape<pause>' + enumText + ' webifi-escape';
+    enumText = this.markUpEnum(enumText);
+    clueText = clueText + ' <pause>' + enumText;
   }
-  this.webifi.output(this.name, this.webifi.annotateText(clueText));
+  this.webifi.output(this.name, clueText);
   if (this.clueHistory.length == 0 ||
       this.clueHistory[this.clueHistory.length - 1] != ci) {
     this.clueHistory.push(ci);
@@ -434,8 +409,7 @@ CrosswordWebifi.prototype.handleWords = function(
   if (startWord >= 0 && startWord < clueWords.length &&
       endWord > startWord) {
     const cluePart = clueWords.slice(startWord, endWord).join(' ');
-    /** Do not call annotateText() on cluePart, keep it siimple */
-    this.webifi.output(this.name, cluePart);
+    this.webifi.output(this.name, '<punctuate>' + cluePart + '</punctuate>');
   } else {
     this.webifi.output(this.name, 'There is no matching part for that in the current clue');
   }
@@ -458,7 +432,7 @@ CrosswordWebifi.prototype.handleEntry = function() {
     const childrenName = this.linkedChildrenNames(clue.childrenClueIndices);
     linkedInfo = 'Note that ' + clueName + ' is a linked clue consisting of ' + childrenName;
   }
-  this.webifi.output(this.name, 'Current entry in this ' + clueName + ' clue is:<pause>' + this.readEntry(ci));
+  this.webifi.output(this.name, 'Current entry in this ' + clueName + ' clue is: <pause>' + this.readEntry(ci));
   if (linkedInfo) {
     this.webifi.output(this.name, linkedInfo);
   }
@@ -498,20 +472,20 @@ CrosswordWebifi.prototype.handleCrossers = function() {
     let cname = `${this.clueName(cci)}`;
     let cclue = this.puz.clues[cci];
     if (cclue.parentClueIndex) {
-      cname = `${this.clueName(cci)}; which is part of the linked clue in<pause> ${this.clueName(cclue.parentClueIndex)}`;
+      cname = `${this.clueName(cci)}; which is part of the linked clue in <pause> ${this.clueName(cclue.parentClueIndex)}`;
       cci = cclue.parentClueIndex;
       cclue = this.puz.clues[cci];
     }
     if (crosser[1] == '0') {
-      descs.push(`Cell ${crosser[0]}, which is blank<pause> crosses: ${cname}.`);
+      descs.push(`Cell ${crosser[0]}, which is blank, <pause> crosses: ${cname}.`);
     } else {
       const cpattern = cclue.placeholder || '';
       const ccells = this.puz.getAllCells(cci);
       const centry = this.getCellsEntry(ccells, cpattern);
       if (centry.indexOf('?') < 0) {
-        descs.push(`Cell ${crosser[0]} has ${crosser[1]}<pause> which comes from the entry<pause> ${this.readEntry(cci)}<pause> in ${cname}.`);
+        descs.push(`Cell ${crosser[0]} has <verbose>${crosser[1]}</verbose>, <pause> which comes from the entry<pause> ${this.readEntry(cci)} <pause> in ${cname}.`);
       } else {
-        descs.push(`Cell ${crosser[0]} has ${crosser[1]}<pause> which crosses an incomplete entry<pause> in ${cname}.`);
+        descs.push(`Cell ${crosser[0]} has <verbose>${crosser[1]}</verbose>, <pause> which crosses an incomplete entry <pause> in ${cname}.`);
       }
     }
   }
@@ -847,7 +821,7 @@ CrosswordWebifi.prototype.handleEnter = function(phrase, numbers, confirmation='
   if (!confirmation) {
     this.enterInCells(cells, letters, cellNumber, false, warnings);
     if (warnings.length > 0) {
-      this.webifi.getUserInput(this.name, 'There are potential problems.<pause>' + warnings.join(',<pause>') + '<pause>Enter yes or OK to confirm.',
+      this.webifi.getUserInput(this.name, 'There are potential problems. <pause>' + warnings.join(', <pause>') + ' <pause>Enter yes or OK to confirm.',
           this.handleEnter.bind(this, phrase, numbers));
     } else {
       this.webifi.output(this.name, 'Entered ' + phrase + ' in ' + this.clueName(ci) + (cellNumber > 1 ? (' starting at cell ' + cellNumber + '.') : '.'));

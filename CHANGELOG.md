@@ -1,5 +1,21 @@
 # Changelog
 
+### Version: Webifi v0.04, May 14, 2022
+
+- Revision and simplification of audio markup:
+  - Just remove annotateText() and &lt;phonetc&gt; and add a few other ones.
+  - Here's the list of tags:
+    - &lt;pause&gt; inserts a pause in speech.
+    - &lt;punctuate&gt;...&lt;/punctuate&gt; spells out any punctuation
+      present in the enclosed text.
+    - &lt;verbose&gt;...&lt;/verbose&gt; spells out any punctuation
+      present in the enclosed text *and* spells out words as well as
+      mentions spaces.
+    - &lt;spoken:X&gt; is spoken out as X (and not rendered in the written
+      output). X should not contain any spaces.
+    - &lt;written:X&gt; is written out as X (and not rendered in the audio
+      output). X should not contain any spaces.
+
 ### Version: Webifi v0.03, May 13, 2022
 
 - Add a few more "markup" to the output text apart from &lt;pause&gt;:

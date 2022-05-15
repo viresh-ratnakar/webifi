@@ -2,58 +2,131 @@
 
 ## An "interactive-fictionesque" chat interface to the web.
 
-### Version: Webifi v0.03 May 13, 2022
+### Version: Webifi v0.04 May 14, 2022
 
 #### Author: Viresh Ratnakar
 
 ## Introduction
 
 Webifi is a text and audio interface that enables chat interactions with
-web pages.
-
-Webifi might be useful for people with limited sight. It might also be useful
-when one wants to interact with a web site while walking, running, etc. It
-might also be an interesting and fun addendum even outside of these use-cases.
+web pages, in a style similar to an interactive-fiction game.
 
 At this point, Webifi is *not* a general-purpose interface: it only works
 for crosswords. However, I plan to expand its capabilities to other kinds
-of web pages. Other word game and puzzle pages are likely to be my next targets.
+of web pages (mainly other word and number games). For now, the rest of
+this README guide describes everything in terms of the crossword application.
 
+There are three motivating use cases for Webifi:
+1. An interactive-fiction interface can be a lot of fun. One can simply use
+   Webifi as an additional interface to a crossword, coexisting with a standard
+   interface. Using Webifi, you can navigate and solve the puzzle with some
+   powerful extra features, while continuing to be able to also use the standard
+   grid-based interactive interface.
+2. Using voice input and audio output, the Webifi interface can be used to solve
+   a crossword without using the screen much (for example, while out running
+   or walking).
+3. A sight-challenged user can use Webifi to solve a crossword, using voice
+   inputs. They can use the text interface in conjunction with any screen-reading
+   mechanism or extension that they may already be using, or they can use
+   Webifi's own audio output.
+
+In an interactive-fiction game (aka a text adventure), you move between various
+locations, interacting with your surroundings using simple text commands. Each
+crossword can be thought of as a text adventure game, where the clues are the
+individual locations. When you are "at" a particular clue, you can access the
+clue (command: **clue**), you can review what letters have been entered so far
+(command: **entry**), you can consult wordplay tools for help (commands:
+**matches**, **anagrams**, **synonyms**, etc.), you can enter (command:
+**type**) and check solutions (command: **check**), and so on. You can navigate
+across clues in various orders, jumping off to crossing lights or to clues that
+have the fewest unfilled letters, etc.
+
+Here's a mock interaction with a Webifi-powered crossword, as an illustration:
+```
+> entry
+
+Current entry in this 11 Across clue is: A_S__
+
+> clue
+
+The way to approach a wedding is through strong beer (5)
+
+> matches
+
+Here are some matches.
+
+Assam, Assad, Aisha, Aisne
+Aesop, asset, at sea, aisle
+arson, assay, apses, asses
+arsis, aesir, assai, apsis
+arses, absey, adsum, absit
+assot, A'asia
+
+> type aisle
+
+Entered aisle in 11 Across.
+
+> check
+
+All cells are correct
+
+> next best
+
+Inspects the foundations of some Berry Ave houses (4)
+
+Current entry in this 6 Down clue is: ___S
+
+```
+
+Webifi provides some powerful assistive features for solving crosswords (of
+course, it's up to you as a solver to decide how much assistance you want to
+use—my own philosophy as a solver is to maximize my *fun* in solving, which
+sometimes means using some assistance to get past a clue that I might be stuck
+on). Webifi can help you find words matching a partial solution; it can offer
+possibilities for some cryptic wordplays such as anagrams and homophnes.
+When online, it can also look up definitions and synonyms.
+
+## The basic interface
 In a Webifi-enabled crossword, there is a link under the crossword that
-says "Webifi", which allows toggling the interface.
-
-If a web-page for a Webifi-enabled crossword is accessed with the URL parameter
-"webifi" present in the URL, then the Webifi interface will open directly and
-will stay open (with the crossword's graphic interface hidden by default).
-Such URLs should be useful for sight-challenged users.
+says "Webifi"; clicking on this link toggles the Webifi interface.
 
 The webifi interface is a simple chat interface, similar to the command-line
 interfaces used in interactive text adventure games. The command prompt is at
 the bottom, and above it is scrollable log of recent commands as well as their
 responses.
 
-To enter a command, type it at the chat prompt (you may want to use voice-input
-if available). You do not have to press the "Enter" key after typing the
-command. Webifi will grab the command after a two-second lull (this is to help
-with voice-typing, where activating the "Enter" key verbally is difficult on
-many mobile platforms). If you need to pause for longer than two seconds while
-typing, just type a space at the end and Webifi will then not grab the text
-(you can always erase the extra space if it's not needed, when you continue
-typing).
+If a web-page for a Webifi-enabled crossword is accessed with the URL parameter
+`webifi` present in the URL, then the Webifi interface will open directly and
+will stay open (the toggle link is not shown). Such a URL should be useful for
+sight-challenged users, as it starts off the puzzle with the graphic interface
+hidden, so that it does not get in the way.
 
-## Note on voice-typing
+To enter a command, type it at the chat prompt (you can also use voice-input
+if available). You do not have to press the "Enter" key after typing the
+command. Webifi will grab the command after a two-second lull in typing (this
+is to help with voice-typing, where activating the "Enter" key verbally is
+difficult on many mobile platforms). If you need to pause for longer than two
+seconds while typing, just type a space at the end and Webifi will then not
+grab the text (you can always erase the extra space if it's not needed, when
+you continue typing).
+
+You can use commands to toggle audio output on and off, and to toggle the
+standard graphic interface on and off.
+
+## Voice-typing
 Voice-typing into a web app is quite quirky, as of May 2022 (sadly). I have
-mostly tried it on Chrome on Android. The ideal interface that I would like
-is one where the microphone stays on while a sight-challenged user interacts
-with the web app (or a sighted user interacts with it while on a walk or a
-run). Unfortunately, I have not yet found a way to get this functionality. The
-closest that I can get is by double-tapping on the microphone icon in the
+mostly tried it with Chrome on Android. The ideal interface that I would like
+is one where the microphone stays on while a user interacts with the web app.
+Unfortunately, I have not yet found a good way to get this functionality. The
+closest that I can get to it is by double-tapping on the microphone icon in the
 on-screen keyboard that shows up in Chrome on Android. This keeps the microphone
-on for long periods. However, at some point the microphone *will* shut off,
+on for long periods. However, at some point the microphone *does* shut off,
 requiring a fresh double-tap on its icon for reactivation.
 
-## Commands
+Voice-typing will hopefully only get better over time, making use-cases (2) and
+(3) much more seamless than they currently are.
 
+## Commands
 Here are all the commands that you can use, grouped by "avatars" that handle them.
 All input is handled case-insensitively. When audio is on, you can cut short
 any long output from Webifi by entering *any* text ("ok" and "shh" are good,
@@ -128,8 +201,9 @@ Describe the crossword, providing info such as grid size, number of clues, title
 #### status
 Get current status and list some unsolved clues in fraction-most-filled order.
 
-- status
-- how am I doing
+- status|look|where
+- where am i
+- how am i doing
 - unsolved clues
 
 #### navigate
@@ -165,20 +239,22 @@ Read the current clue again.
 You also access different parts of the clue, which is especially useful
 when you are listening to the interface using audio. Each one of these
 commands will show three words from the clue (or fewer, if the clue
-ends before three words).
+ends before three words). With audio on, looking at a part of the
+clue with one of these commands will also read out any punctuation marks
+in the clue part.
 
 - words|word|part|parts [number]
 - words|word|part|parts at|from [number]
 - clue words|word|part|parts [number]
 - clue words|word|part|parts at|from [number]
 - clue start|starting|end|ending
-- words|word at start|starting|end|ending
-- words|word at the start|starting|end|ending
+- words|word|clue at start|starting|end|ending
+- words|word|clue at the start|starting|end|ending
 - clue words|word at start|starting|end|ending
 - clue words|word at the start|starting|end|ending
-- words|word after
+- words|word|clue after
 - clue words|word after
-- words|word before
+- words|word|clue before
 - clue words|word before
 
 The [number], if used, should be the 1-based index of words in the clue.
