@@ -2,6 +2,10 @@
 
 ### Unnumbered tweak, May 15, 2022
 
+- Add phonetic for em-dash (—)
+
+### Unnumbered tweak, May 15, 2022
+
 - Handle HTML entities in clues.
 
 ### Unnumbered tweak, May 15, 2022
