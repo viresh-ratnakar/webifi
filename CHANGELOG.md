@@ -1,5 +1,9 @@
 # Changelog
 
+### Unnumbered tweak, May 15, 2022
+
+- Fix hyphen treatment in enums
+
 ### Unnumbered tweak, May 14, 2022
 
 - Add colon and seminolon to phonetics.
