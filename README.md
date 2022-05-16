@@ -2,7 +2,7 @@
 
 ## An "interactive-fictionesque" chat interface to the web.
 
-### Version: Webifi v0.04 May 14, 2022
+### Version: Webifi v0.05 May 16, 2022
 
 #### Author: Viresh Ratnakar
 
@@ -292,10 +292,13 @@ ignored on some platforms). The command "fill" may get misinterpreted as
 letters into the grid.
 
 #### clear
-Clear entries in the current light or a particular cell.
+Clear entries in the current light or a particular cell or everythere.
 
 - clear
 - clear cell [number]
+- clear all
+
+The "clear all" command asks for confirmation.
 
 #### check
 Check entries in the current light or a particular cell or everywhere.
@@ -304,7 +307,7 @@ Check entries in the current light or a particular cell or everywhere.
 - check cell [number]
 - check all
 
-Any incorrect cells in scope will get cleared. This option is only available in
+Any incorrect cells in scope will get cleared. This command is only available in
 crossword where the solution has been provided.
 
 #### reveal
@@ -314,7 +317,8 @@ Reveal entries in the current light or a particular cell or everywhere.
 - reveal cell [number]
 - reveal all
 
-This option is only available in crossword where the solution has been provided.
+This command is only available in crossword where the solution has been
+provided. The "reveal all" command asks for confirmation.
 
 #### matches
 Get words or phrases matching the letters that have been entered so far in the

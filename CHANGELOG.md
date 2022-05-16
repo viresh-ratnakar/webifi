@@ -1,5 +1,13 @@
 # Changelog
 
+### Version: Webifi v0.05, May 16, 2022
+
+- Add clear-all, making it use a confirmation. Make reveal-all also use a
+  confirmation.
+- At start-up, proactively issue the "intro" command.
+- Tweak the crossword intro shown to be a bit more helpful.
+- Return focus to the input element after a confirmation entry.
+
 ### Unnumbered tweak, May 15, 2022
 
 - Fix scrolling for firefox.
