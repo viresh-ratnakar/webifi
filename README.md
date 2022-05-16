@@ -136,13 +136,13 @@ natural choices).
 This is the basic avatar. It provides commands that control settings, display,
 audio, etc. The available commands are as follows:
 
-#### hello
+#### intro
 Get an introduction to Webifi and a listing of available avatars.
 
 - whats your name
 - what's your name
 - who are you
-- hi|hello|greeting|greetings
+- hi|hello|greeting|greetings|intro|introduction
 
 #### audio
 Report or set audio mode.
