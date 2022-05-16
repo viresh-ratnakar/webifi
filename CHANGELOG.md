@@ -1,5 +1,10 @@
 # Changelog
 
+### Version: Unnumbered, May 16, 2022
+
+- Tweak the Webifi avatar intro text. Include version number.
+- Tweak the Crossword avatar intro text.
+
 ### Version: Webifi v0.05, May 16, 2022
 
 - Add clear-all, making it use a confirmation. Make reveal-all also use a
