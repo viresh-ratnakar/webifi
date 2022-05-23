@@ -1,5 +1,9 @@
 # Changelog
 
+### Version: Unnumbered, May 23, 2022
+
+- Add tip on cutting off long monologues to "auidio on" output.
+
 ### Version: Unnumbered, May 16, 2022
 
 - Tweak the Webifi avatar intro text. Include version number.
