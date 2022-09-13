@@ -1,5 +1,11 @@
 # Changelog
 
+### Version: Webifi v0.06, September 13, 2022
+
+- Allow the URL parameter webifi to have a value that can override
+  display and audio settings. The value has to be like `k1-v1[.k2-v2[...]]`
+  and the key can be `display`/`audio` while the value can be `off`/`on`.
+
 ### Version: Unnumbered, May 23, 2022
 
 - Add tip on cutting off long monologues to "auidio on" output.
