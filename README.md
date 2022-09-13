@@ -102,12 +102,12 @@ sight-challenged users, as it starts off the puzzle with the graphic interface
 hidden, so that it does not get in the way. You can optionally set the value of
 this parameter to be a dot-separated string like `k1-v1[.k2-v2...]` to
 override certain options:
-```
+
 | Option key | Description   |Option values | Default |
 -------------------------------------------------------
-| display    | Whether the crossword grid is displayed or not | off, on | off |
-| audio      | Whether audio is turned on or not | off, on    | off     |
-```
+| `display`  | Whether the crossword grid is displayed or not | `off`, `on` | `off` |
+| `audio`    | Whether audio is turned on or not | `off`, `on`    | `off`     |
+
 
 To enter a command, type it at the chat prompt (you can also use voice-input
 if available). You do not have to press the "Enter" key after typing the
