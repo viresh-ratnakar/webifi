@@ -104,7 +104,7 @@ this parameter to be a dot-separated string like `k1-v1[.k2-v2...]` to
 override certain options:
 
 | Option key | Description   |Option values | Default |
--------------------------------------------------------
+|------------|---------------|--------------|---------|
 | `display`  | Whether the crossword grid is displayed or not | `off`, `on` | `off` |
 | `audio`    | Whether audio is turned on or not | `off`, `on`    | `off`     |
 
