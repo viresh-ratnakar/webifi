@@ -2,7 +2,7 @@
 
 ## An "interactive-fictionesque" chat interface to the web.
 
-### Version: Webifi v0.06, September 13, 2022
+### Version: Webifi v0.07, September 24, 2022
 
 #### Author: Viresh Ratnakar
 
@@ -117,6 +117,10 @@ difficult on many mobile platforms). If you need to pause for longer than two
 seconds while typing, just type a space at the end and Webifi will then not
 grab the text (you can always erase the extra space if it's not needed, when
 you continue typing).
+
+Trailing question-marks and periods are ignored in parsing commands. If you
+want to end with a question-mark (period) then add an additional period
+(question-mark) at the end.
 
 You can use commands to toggle audio output on and off, and to toggle the
 standard graphic interface on and off.

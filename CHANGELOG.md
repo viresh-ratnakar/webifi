@@ -1,5 +1,12 @@
 # Changelog
 
+### Version: Webifi v0.07, September 24, 2022
+
+- Delete webifi's getCellsEntry() and reuse Exolve's copy, now that it has it.
+- Sometimes commands need to end with question-marks (for example,
+  "pattern f?c?"). Allowing doing that by also ignoring trailing periods. So,
+  if you want to end with a question-mark, add a trailing period.
+
 ### Version: Webifi v0.06, September 13, 2022
 
 - Allow the URL parameter webifi to have a value that can override
