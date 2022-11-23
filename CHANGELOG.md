@@ -1,5 +1,10 @@
 # Changelog
 
+### Version: Webifi v0.07.1, November 22, 2022
+
+- Call this.puz.updateActiveCluesState() from handleEnter(), so that
+  clue solving sequence and clue-solved-state get updated when needed.
+
 ### Version: Webifi v0.07, September 24, 2022
 
 - Delete webifi's getCellsEntry() and reuse Exolve's copy, now that it has it.
