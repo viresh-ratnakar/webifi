@@ -1,5 +1,10 @@
 # Changelog
 
+### Version: Webifi v0.07.2, March 27, 2023
+
+- Bug-fix: the lexicon key allLetters needed to be changed to its new
+  name, letterSet.
+
 ### Version: Webifi v0.07.1, November 22, 2022
 
 - Call this.puz.updateActiveCluesState() from handleEnter(), so that
