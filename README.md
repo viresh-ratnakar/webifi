@@ -2,7 +2,7 @@
 
 ## An "interactive-fictionesque" chat interface to the web.
 
-### Version: Webifi v0.07, September 24, 2022
+### Version: Webifi v0.07.3, July 12, 2026
 
 #### Author: Viresh Ratnakar
 
@@ -40,6 +40,18 @@ clue (command: **clue**), you can review what letters have been entered so far
 **type**) and check solutions (command: **check**), and so on. You can navigate
 across clues in various orders, jumping off to crossing lights or to clues that
 have the fewest unfilled letters, etc.
+
+You can change spelling preference region with **region** command. Currently
+supported variants:
+```
+> region Britain
+> region US
+> region Canada
+```
+To revert to having no preferred region:
+```
+> region
+```
 
 Here's a mock interaction with a Webifi-powered crossword, as an illustration:
 ```
@@ -398,11 +410,12 @@ add the following files in your serving directory:
 - [`crossword-webifi.js`](https://raw.githubusercontent.com/viresh-ratnakar/webifi/master/crossword-webifi.js)
 - [`webifi-icon.png`](https://raw.githubusercontent.com/viresh-ratnakar/webifi/master/webifi-icon.png)
 
-You also need these two files from the
+You also need these files from the
 [Exet](https://github.com/viresh-ratnakar/exet) project:
 
 - [`exet-lexicon.js`](https://raw.githubusercontent.com/viresh-ratnakar/exet/master/exet-lexicon.js)
 - [`lufz-en-lexicon.js`](https://raw.githubusercontent.com/viresh-ratnakar/exet/master/lufz-en-lexicon.js)
+- [`lufz-en-lexicon-stems.js`](https://raw.githubusercontent.com/viresh-ratnakar/exet/master/lufz-en-lexicon-stems.js)
 
 Your crossword page that uses Exolve should use Exolve v1.34 or later, in
 order for it to offer Webifi. This means that it's either a

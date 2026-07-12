@@ -1,5 +1,11 @@
 # Changelog
 
+### Version: Webifi v0.07.3, July 12, 2026
+
+- The "Lufz" lexicon now needs two files to be loaded: lufz-en-lexicon.js and
+  lufz-en-lexicon-stems.js.
+- Added "region" command to allow changing spelling preference regions.
+
 ### Version: Webifi v0.07.2, March 27, 2023
 
 - Bug-fix: the lexicon key allLetters needed to be changed to its new
