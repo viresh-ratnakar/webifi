@@ -1,5 +1,10 @@
 # Changelog
 
+### Version: Webifi v0.07.4, July 13, 2026
+
+- Added code to auto-convert region to first-letter-uppercase
+- Updated documentation
+
 ### Version: Webifi v0.07.3, July 12, 2026
 
 - The "Lufz" lexicon now needs two files to be loaded: lufz-en-lexicon.js and

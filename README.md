@@ -357,6 +357,14 @@ current light.
 Word patterns, anagrams, word sounds, definitions, synonyms.
 The available commands are as follows:
 
+#### region
+Specify (or clear) a regional spelling preference.
+
+- region|spelling|spellings|locale [Britain|US|Canada]
+
+The regional preference applies to subsequent patter look-ups. When no region
+is specified, the previously set preference (if any) is cleared.
+
 #### define
 Use dictionarydev.api to look up a word or phrase.
 
